@@ -442,73 +442,6 @@ h1 {
   background: var(--yellow);
 }
 
-.floating-note {
-  position: absolute;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 13px 16px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.93);
-  box-shadow: 0 12px 34px rgba(38, 71, 92, 0.15);
-  font-size: 12px;
-  font-weight: 700;
-  backdrop-filter: blur(10px);
-}
-
-.floating-note small {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--muted);
-  font-size: 8px;
-  letter-spacing: 0.13em;
-}
-
-.note-top {
-  top: 105px;
-  right: -4px;
-  animation: float 4.5s ease-in-out infinite;
-}
-
-.note-bottom {
-  bottom: 72px;
-  left: 0;
-  animation: float 5.2s ease-in-out 0.6s infinite;
-}
-
-.note-icon {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border-radius: 50%;
-  color: white;
-  background: var(--blue);
-}
-
-.mini-bell {
-  position: relative;
-  width: 30px;
-  height: 25px;
-  border: 2px solid var(--ink);
-  border-radius: 50% 50% 45% 45%;
-  background: var(--yellow);
-}
-
-.mini-bell::after {
-  position: absolute;
-  bottom: -7px;
-  left: 10px;
-  width: 6px;
-  height: 6px;
-  content: "";
-  border: 2px solid var(--ink);
-  border-radius: 50%;
-  background: var(--yellow);
-}
-
 .propeller {
   position: absolute;
   z-index: 3;
@@ -559,12 +492,6 @@ h1 {
   border: 2px solid var(--ink);
   border-radius: 50%;
   background: var(--red);
-}
-
-@keyframes float {
-  0%,
-  100% { transform: translateY(0) rotate(-1deg); }
-  50% { transform: translateY(-9px) rotate(1deg); }
 }
 
 .ticker {
@@ -1333,20 +1260,6 @@ noscript {
   .portrait-card {
     top: 35px;
     width: 76%;
-  }
-
-  .note-top {
-    top: 85px;
-    right: -4px;
-  }
-
-  .note-bottom {
-    bottom: 35px;
-    left: -2px;
-  }
-
-  .floating-note {
-    padding: 10px;
   }
 
   .propeller {

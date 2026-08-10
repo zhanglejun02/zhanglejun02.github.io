@@ -39,14 +39,10 @@
     const fields = {
       name: config.profile.name,
       shortName: config.profile.shortName,
-      role: config.profile.role,
-      field: config.profile.field,
       intro: config.profile.intro,
       about: config.profile.about,
       email: config.profile.email,
       location: config.profile.location,
-      currentTopic: config.profile.currentTopic,
-      phdSince: config.profile.phdSince,
     };
 
     Object.entries(fields).forEach(([field, value]) => {
@@ -56,7 +52,11 @@
     });
 
     document.querySelectorAll('[data-site-link="email"]').forEach((link) => {
-      link.href = `mailto:${config.profile.email}`;
+      if (config.profile.email) {
+        link.href = `mailto:${config.profile.email}`;
+      } else {
+        link.hidden = true;
+      }
     });
 
     document.querySelectorAll('[data-site-link="cv"]').forEach((link) => {
@@ -84,10 +84,12 @@
     if (!container) return;
 
     container.innerHTML = config.socialLinks
-      .map(
-        (link, index) =>
-          `${index ? "<span>·</span>" : ""}<a href="${escapeHtml(link.url)}"${externalAttributes(link.url)}>${escapeHtml(link.label)}</a>`,
-      )
+      .map((link, index) => {
+        const item = link.url
+          ? `<a href="${escapeHtml(link.url)}"${externalAttributes(link.url)}>${escapeHtml(link.label)}</a>`
+          : `<span class="social-label">${escapeHtml(link.label)}</span>`;
+        return `${index ? "<span>·</span>" : ""}${item}`;
+      })
       .join("");
   }
 
