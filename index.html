@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一位博士生的个人学术主页，展示研究方向、论文、动态与经历。"
+    />
+    <meta name="theme-color" content="#159de4" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NAME · Academic Homepage" />
+    <meta
+      property="og:description"
+      content="一位博士生的个人学术主页，展示研究方向、论文、动态与经历。"
+    />
+    <meta property="og:image" content="./assets/social-preview.svg" />
+    <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>NAME · Academic Homepage</title>
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳至主要内容</a>
+
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="返回首页">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span>
+        </span>
+        <span class="brand-name"><span data-site="shortName">NAME</span><i>.</i></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="主导航">
+        <a href="#about">About</a>
+        <a href="#news">News</a>
+        <a href="#research">Research</a>
+        <a href="#journey">Journey</a>
+      </nav>
+
+      <a class="header-cta" data-site-link="email" href="mailto:hello@example.com">
+        <span class="status-dot"></span>
+        Let’s talk
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" id="home">
+        <div class="hero-copy">
+          <div class="eyebrow"><span>HELLO!</span> NICE TO MEET YOU</div>
+          <h1>
+            Hi, I’m <span class="name-highlight" data-site="name">YOUR NAME</span><br />
+            a <span data-site="role">PhD researcher</span><br />
+            exploring <span class="research-highlight" data-site="field">YOUR FIELD.</span>
+          </h1>
+          <p class="hero-intro">
+            <span data-site="intro">我是一名博士研究生，关注有趣且有意义的研究问题。</span>
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#research">
+              View my research
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a class="text-link" data-site-link="cv" href="./assets/cv.pdf">
+              Download CV <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <div class="social-row" id="social-links" aria-label="学术与社交链接"></div>
+        </div>
+
+        <div class="hero-visual" aria-label="个人照片占位区域">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="portrait-card">
+            <div class="portrait-placeholder" id="portrait">
+              <span>YOUR<br />PHOTO</span>
+            </div>
+            <div class="portrait-caption">
+              <span>Currently in</span>
+              <strong data-site="location">[CITY, COUNTRY]</strong>
+            </div>
+          </div>
+          <div class="floating-note note-top">
+            <span class="note-icon">✦</span>
+            <span><small>NOW EXPLORING</small><b data-site="currentTopic">[CURRENT TOPIC]</b></span>
+          </div>
+          <div class="floating-note note-bottom">
+            <span class="mini-bell" aria-hidden="true"></span>
+            <span><small>PHD CANDIDATE</small>Since <b data-site="phdSince">20XX</b></span>
+          </div>
+          <div class="propeller" aria-hidden="true">
+            <i></i><b></b><em></em>
+          </div>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>CURIOUS MIND</span><i>✦</i>
+          <span>OPEN SCIENCE</span><i>✦</i>
+          <span>HUMAN-CENTERED</span><i>✦</i>
+          <span>ALWAYS EXPLORING</span><i>✦</i>
+          <span>CURIOUS MIND</span><i>✦</i>
+          <span>OPEN SCIENCE</span><i>✦</i>
+        </div>
+      </div>
+
+      <section class="about section-shell section-block" id="about">
+        <div class="section-heading">
+          <div>
+            <span class="section-number">01</span>
+            <p class="section-kicker">A LITTLE ABOUT ME</p>
+            <h2>Research with<br /><em>curiosity & care.</em></h2>
+          </div>
+          <p class="section-summary" data-site="about">
+            在这里介绍你的研究兴趣、研究方法与长期目标。
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="interest-card blue-card">
+            <span class="card-index">01</span>
+            <div class="line-icon network-icon" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </div>
+            <h3 data-interest-title="0">[RESEARCH INTEREST 01]</h3>
+            <p data-interest-description="0">介绍你的第一个核心研究方向。</p>
+            <span class="card-arrow">↗</span>
+          </article>
+          <article class="interest-card cream-card">
+            <span class="card-index">02</span>
+            <div class="line-icon pocket-icon" aria-hidden="true"></div>
+            <h3 data-interest-title="1">[RESEARCH INTEREST 02]</h3>
+            <p data-interest-description="1">介绍你的第二个核心研究方向。</p>
+            <span class="card-arrow">↗</span>
+          </article>
+          <aside class="small-fact-card">
+            <span class="sparkle">✦</span>
+            <p>Outside the lab</p>
+            <h3 id="hobbies">I also enjoy<br />[HOBBY 01],<br />[HOBBY 02] &<br />blue-sky thinking.</h3>
+          </aside>
+        </div>
+      </section>
+
+      <section class="news section-block" id="news">
+        <div class="section-shell">
+          <div class="section-heading compact">
+            <div>
+              <span class="section-number">02</span>
+              <p class="section-kicker">WHAT’S HAPPENING</p>
+              <h2>Latest <em>news.</em></h2>
+            </div>
+            <a class="text-link" href="#">View all updates <span>↗</span></a>
+          </div>
+
+          <!-- 动态内容由 site.config.js 中的 news 数组生成 -->
+          <div class="news-list" id="news-list"></div>
+        </div>
+      </section>
+
+      <section class="research section-shell section-block" id="research">
+        <div class="section-heading compact">
+          <div>
+            <span class="section-number">03</span>
+            <p class="section-kicker">SELECTED WORK</p>
+            <h2>Featured <em>research.</em></h2>
+          </div>
+          <p class="section-summary small">
+            这里展示代表性论文。后续可按年份筛选，或接入 Google Scholar 数据。
+          </p>
+        </div>
+
+        <!-- 论文内容由 site.config.js 中的 publications 数组生成 -->
+        <div class="paper-list" id="paper-list"></div>
+      </section>
+
+      <section class="journey section-block" id="journey">
+        <div class="section-shell">
+          <div class="section-heading compact">
+            <div>
+              <span class="section-number">04</span>
+              <p class="section-kicker">THE PATH SO FAR</p>
+              <h2>My <em>journey.</em></h2>
+            </div>
+          </div>
+          <!-- 经历内容由 site.config.js 中的 journey 数组生成 -->
+          <div class="timeline" id="timeline">
+            <div class="timeline-line"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-shell">
+        <div class="contact-card">
+          <div class="contact-decoration" aria-hidden="true">
+            <span class="big-bell"></span>
+          </div>
+          <p class="section-kicker">ONE MORE THING...</p>
+          <h2>Have an interesting idea?<br /><em>Let’s open a new door.</em></h2>
+          <p>欢迎聊研究、合作与一切有趣的想法。</p>
+          <a class="button button-light" data-site-link="email" href="mailto:hello@example.com">
+            <span data-site="email">hello@example.com</span> <span>↗</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-shell">
+      <a class="brand footer-brand" href="#home">
+        <span class="brand-mark" aria-hidden="true"><span></span></span>
+        <span class="brand-name"><span data-site="shortName">NAME</span><i>.</i></span>
+      </a>
+      <p>Designed with curiosity, built with care.</p>
+      <p>© <span id="year">2026</span> <span data-site="name">YOUR NAME</span></p>
+    </footer>
+
+    <noscript>本网站需要启用 JavaScript 才能显示动态、论文与经历内容。</noscript>
+    <script src="./site.config.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
