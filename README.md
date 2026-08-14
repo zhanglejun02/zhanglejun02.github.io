@@ -2,6 +2,8 @@
 
 一个无需后端与构建工具的个人学术主页，可直接部署到 GitHub Pages。
 
+在线访问：<https://zhanglejun02.github.io/>
+
 ## 文件结构
 
 ```text
@@ -62,16 +64,10 @@ python3 -m http.server 4173
 
 之后每次向 `main` 分支推送修改，网站都会自动重新部署。
 
-如果仓库名为 `YOUR_GITHUB_USERNAME.github.io`，主页地址通常是：
+当前网站地址：
 
 ```text
-https://YOUR_GITHUB_USERNAME.github.io/
-```
-
-如果使用普通仓库名，例如 `homepage`，地址通常是：
-
-```text
-https://YOUR_GITHUB_USERNAME.github.io/homepage/
+https://zhanglejun02.github.io/
 ```
 
 ## 发布前检查

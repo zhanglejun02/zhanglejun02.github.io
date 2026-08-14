@@ -8,7 +8,7 @@
 window.SITE_CONFIG = {
   meta: {
     title: "Lejun Zhang · Academic Homepage",
-    description: "一位博士生的个人学术主页，展示研究方向、论文、动态与经历。",
+    // description: "一位博士生的个人学术主页，展示研究方向、论文、动态与经历。",
     // 部署后替换为主页完整地址，例如 https://username.github.io/
     url: "https://zhanglejun02.github.io/",
   },
@@ -20,7 +20,7 @@ window.SITE_CONFIG = {
       "我是一名来自 Shanghai Jiao Tong University 的博士研究生，关注 [RESEARCH AREA 01] 与 [RESEARCH AREA 02]。希望用有趣的研究，解决真实世界里有意义的问题。",
     about:
       "我的研究兴趣位于 [AREA A]、[AREA B] 和 [AREA C] 的交叉地带。我喜欢把复杂问题拆解成清晰、可验证，也对人真正有帮助的研究。",
-    email: "",
+    email: "lejunzhang@sjtu.edu.cn",
     location: "[Shanghai, China]",
     // 替换照片后填写相对路径，例如 "./assets/profile.jpg"；留空则显示占位图。
     photo: "./assets/profile.png",
@@ -31,7 +31,6 @@ window.SITE_CONFIG = {
   socialLinks: [
     { label: "Google Scholar", url: "https://scholar.google.com/" },
     { label: "GitHub", url: "https://github.com/" },
-    { label: "X / Twitter", url: "https://x.com/" },
     { label: "WeChat", url: "" },
   ],
 
@@ -146,14 +145,14 @@ window.SITE_CONFIG = {
 
   journey: [
     {
-      period: "20XX — NOW",
-      title: "PhD in [MAJOR]",
-      organization: "[UNIVERSITY NAME] · [LAB NAME]",
+      period: "2026 — NOW",
+      title: "PhD in Computer Science",
+      organization: "Shanghai Jiao Tong University · [LAB NAME]",
     },
     {
-      period: "20XX — 20XX",
-      title: "Visiting Researcher",
-      organization: "[INSTITUTE NAME] · [CITY]",
+      period: "2024 — 2026",
+      title: "Master in Computer Engineering",
+      organization: "New York University · Tandon School of Engineering",
     },
     {
       period: "20XX — 20XX",
