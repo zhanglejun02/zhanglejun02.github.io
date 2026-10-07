@@ -4,7 +4,7 @@
   const config = window.SITE_CONFIG;
 
   if (!config) {
-    console.error("未找到 SITE_CONFIG，请确认 site.config.js 已正确加载。");
+    console.error("SITE_CONFIG not found. Make sure site.config.js is loaded.");
     return;
   }
 
@@ -72,7 +72,7 @@
       portrait.replaceChildren();
       const image = document.createElement("img");
       image.src = config.profile.photo;
-      image.alt = `${config.profile.name} 的个人照片`;
+      image.alt = `Photo of ${config.profile.name}`;
       image.loading = "eager";
       portrait.append(image);
       portrait.classList.add("has-photo");
@@ -108,7 +108,7 @@
     document.querySelectorAll("[data-qr-code]").forEach((button) => {
       button.addEventListener("click", () => {
         image.src = button.dataset.qrCode;
-        image.alt = `${button.dataset.qrLabel} 二维码`;
+        image.alt = `${button.dataset.qrLabel} QR code`;
         title.textContent = `Scan to add me on ${button.dataset.qrLabel}`;
         dialog.showModal();
       });
@@ -154,7 +154,7 @@
               <span class="tag${item.featured ? " tag-red" : ""}">${escapeHtml(item.tag)}</span>
               <p>${escapeHtml(item.text)}</p>
             </div>
-            <a class="circle-arrow" href="${escapeHtml(item.url)}"${externalAttributes(item.url)} aria-label="阅读 ${escapeHtml(item.date)} 的动态">↗</a>
+            <a class="circle-arrow" href="${escapeHtml(item.url)}"${externalAttributes(item.url)} aria-label="Read the ${escapeHtml(item.date)} update">↗</a>
           </article>`,
       )
       .join("");
@@ -174,7 +174,7 @@
           )
           .join(", ");
         const visual = paper.image
-          ? `<img src="${escapeHtml(paper.image)}" alt="${escapeHtml(paper.title)} 的项目预览图" loading="lazy" />`
+          ? `<img src="${escapeHtml(paper.image)}" alt="Preview of ${escapeHtml(paper.title)}" loading="lazy" />`
           : `<span>PROJECT<br />VISUAL</span><i class="${escapeHtml(paper.decoration)}-shape"></i>`;
         const badge = paper.badge
           ? `<span class="tag${paper.badge === "ORAL" ? " tag-red" : ""}">${escapeHtml(paper.badge)}</span>`
@@ -372,7 +372,7 @@
     menuButton?.addEventListener("click", () => {
       const isOpen = navigation.classList.toggle("open");
       menuButton.setAttribute("aria-expanded", String(isOpen));
-      menuButton.setAttribute("aria-label", isOpen ? "关闭导航" : "打开导航");
+      menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
     });
 
     navigationLinks.forEach((link) => {

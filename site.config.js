@@ -8,7 +8,8 @@
 window.SITE_CONFIG = {
   meta: {
     title: "Lejun Zhang · Academic Homepage",
-    // description: "一位博士生的个人学术主页，展示研究方向、论文、动态与经历。",
+    description:
+      "Academic homepage of Lejun Zhang, a PhD student sharing research, publications, news, and experience.",
     // 部署后替换为主页完整地址，例如 https://username.github.io/
     url: "https://zhanglejun02.github.io/",
   },
@@ -17,9 +18,9 @@ window.SITE_CONFIG = {
     name: "Lejun Zhang",
     shortName: "NAME",
     intro:
-      "我是一名来自 Shanghai Jiao Tong University 的博士研究生，关注 [RESEARCH AREA 01] 与 [RESEARCH AREA 02]。希望用有趣的研究，解决真实世界里有意义的问题。",
+      "I’m a PhD student at Shanghai Jiao Tong University, working on [RESEARCH AREA 01] and [RESEARCH AREA 02]. I hope to solve meaningful real-world problems through fun and rigorous research.",
     about:
-      "我的研究兴趣位于 [AREA A]、[AREA B] 和 [AREA C] 的交叉地带。我喜欢把复杂问题拆解成清晰、可验证，也对人真正有帮助的研究。",
+      "My research lies at the intersection of [AREA A], [AREA B], and [AREA C]. I enjoy breaking complex problems down into research that is clear, verifiable, and genuinely helpful to people.",
     email: "lejunzhang@sjtu.edu.cn",
     location: "[Shanghai, China]",
     // 替换照片后填写相对路径，例如 "./assets/profile.jpg"；留空则显示占位图。
@@ -38,11 +39,11 @@ window.SITE_CONFIG = {
   researchInterests: [
     {
       title: "[RESEARCH INTEREST 01]",
-      description: "用一两句话介绍你的第一个核心研究方向，以及你最关心的问题。",
+      description: "One or two sentences about your first core research direction and the questions you care about most.",
     },
     {
       title: "[RESEARCH INTEREST 02]",
-      description: "用一两句话介绍你的第二个核心研究方向，以及它的现实价值。",
+      description: "One or two sentences about your second core research direction and its real-world impact.",
     },
   ],
 
@@ -57,7 +58,7 @@ window.SITE_CONFIG = {
       date: "2026.08",
       datetime: "2026-08",
       tag: "NEW",
-      text: "我们的新工作 [PAPER TITLE] 被 [CONFERENCE] 接收。",
+      text: "Our new paper [PAPER TITLE] has been accepted to [CONFERENCE].",
       url: "#",
       featured: true,
     },
@@ -65,7 +66,7 @@ window.SITE_CONFIG = {
       date: "2026.06",
       datetime: "2026-06",
       tag: "TALK",
-      text: "受邀在 [INSTITUTE / EVENT] 分享关于 [TOPIC] 的最新研究。",
+      text: "Invited talk on [TOPIC] at [INSTITUTE / EVENT].",
       url: "#",
       featured: false,
     },
@@ -73,7 +74,7 @@ window.SITE_CONFIG = {
       date: "2026.03",
       datetime: "2026-03",
       tag: "MILESTONE",
-      text: "开始在 [LAB / UNIVERSITY] 的访问研究，很期待新的合作。",
+      text: "Started a visiting research position at [LAB / UNIVERSITY]. Excited for new collaborations!",
       url: "#",
       featured: false,
     },
@@ -81,7 +82,7 @@ window.SITE_CONFIG = {
       date: "2025.12",
       datetime: "2025-12",
       tag: "AWARD",
-      text: "获得 [AWARD NAME]，感谢所有合作者与导师。",
+      text: "Received the [AWARD NAME]. Thanks to all my collaborators and advisors.",
       url: "#",
       featured: false,
     },
@@ -100,7 +101,7 @@ window.SITE_CONFIG = {
       badge: "ORAL",
       authors: ["Your Name", "Collaborator A", "Collaborator B", "Advisor Name"],
       selfAuthorIndex: 0,
-      description: "用两句话快速介绍论文解决了什么问题、采用了什么方法，以及最重要的发现。",
+      description: "Two sentences on the problem this paper tackles, the approach it takes, and its key findings.",
       image: "",
       theme: "blue",
       decoration: "portal",
@@ -116,7 +117,7 @@ window.SITE_CONFIG = {
       badge: "SPOTLIGHT",
       authors: ["Collaborator A", "Your Name", "Collaborator B", "Advisor Name"],
       selfAuthorIndex: 1,
-      description: "用两句话快速介绍论文解决了什么问题、采用了什么方法，以及最重要的发现。",
+      description: "Two sentences on the problem this paper tackles, the approach it takes, and its key findings.",
       image: "",
       theme: "yellow",
       decoration: "bell",
@@ -132,7 +133,7 @@ window.SITE_CONFIG = {
       badge: "",
       authors: ["Collaborator A", "Collaborator B", "Your Name", "Advisor Name"],
       selfAuthorIndex: 2,
-      description: "用两句话快速介绍论文解决了什么问题、采用了什么方法，以及最重要的发现。",
+      description: "Two sentences on the problem this paper tackles, the approach it takes, and its key findings.",
       image: "",
       theme: "red",
       decoration: "door",

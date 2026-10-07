@@ -200,8 +200,8 @@ a {
 .hero {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  min-height: 720px;
-  padding-block: 100px 80px;
+  min-height: 640px;
+  padding-block: 90px 16px;
 }
 
 .hero-copy {
@@ -430,7 +430,7 @@ h1 {
 .hero-visual {
   position: relative;
   align-self: center;
-  min-height: 570px;
+  min-height: 540px;
 }
 
 .portrait-card {
@@ -1462,7 +1462,7 @@ noscript {
 
   .hero {
     min-height: auto;
-    padding-block: 70px 50px;
+    padding-block: 70px 16px;
   }
 
   h1 {
