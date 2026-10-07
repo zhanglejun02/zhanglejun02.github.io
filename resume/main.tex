@@ -1,0 +1,213 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,top=0.62in,bottom=0.48in,left=0.70in,right=0.70in]{geometry}
+\usepackage{fontspec}
+\usepackage{ucharclasses}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{needspace}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{etoolbox}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+
+\AtEndDocument{\label{LastPage}}
+
+\definecolor{accent}{HTML}{A855A1}
+\colorlet{rulecol}{accent!45}
+\definecolor{muted}{HTML}{555555}
+
+\setmainfont{Songti SC}
+\newfontfamily\englishfont{Times New Roman}
+\newfontfamily\zhfont{Songti SC}
+\setTransitionsForLatin{\englishfont}{\zhfont}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\color{muted}\scriptsize 张乐骏 Lejun Zhang\quad·\quad\thepage/\pageref{LastPage}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.0}
+\urlstyle{same}
+\raggedbottom
+
+% 发出前请清空所有 \todo{...}
+\newcommand{\todo}[1]{\textcolor{red}{\small[待补充：#1]}}
+
+\titleformat{\section}
+  {\fontsize{12.6}{15}\selectfont\bfseries\color{accent}}
+  {}{0pt}{}
+  [\vspace{0.14em}{\color{rulecol}\titlerule[0.9pt]}]
+\titlespacing*{\section}{0pt}{1.30em}{0.62em}
+
+\setlist[itemize]{
+  leftmargin=1.30em,
+  itemsep=0.44em,
+  topsep=0.42em,
+  parsep=0pt,
+  partopsep=0pt,
+  label=\textcolor{rulecol}{\textbullet}
+}
+
+% 学历条目：#1 学校 #2 院系学位 #3 时间 #4 补充说明（可留空）
+\newcommand{\entry}[4]{%
+  \begin{tabularx}{\textwidth}{@{}X>{\raggedleft\arraybackslash}p{3.6cm}@{}}
+    \textbf{#1}\enspace #2 & \textbf{#3}
+  \end{tabularx}%
+  \notblank{#4}{\vspace{0.12em}\par{\small\color{muted}#4}\par}{}%
+  \vspace{0.66em}
+}
+
+% 论文条目：#1 标题 #2 作者 #3 会议信息（按内容定宽，与标题首行右对齐）
+\newsavebox\venuebox
+\newcommand{\paper}[3]{%
+  \par\needspace{2\baselineskip}%
+  \sbox\venuebox{\scriptsize\color{muted}#3}%
+  \noindent
+  \parbox[t]{\dimexpr\textwidth-\wd\venuebox-1em\relax}%
+    {\vspace{0pt}\linespread{0.92}\selectfont\itshape #1}%
+  \hfill
+  \parbox[t]{\wd\venuebox}{\vspace{0pt}\raggedleft\scriptsize\color{muted}#3}%
+  \par\vspace{0.32em}%
+  {\small #2}\par\vspace{0.55em}%
+}
+
+% 项目条目：#1 中文名 #2 英文副题 #3 右侧标注
+\newcommand{\project}[3]{%
+  \par\vspace{0.50em}%
+  \Needspace{6\baselineskip}%
+  \noindent{\color{accent}\rule[-0.18em]{2.6pt}{1.0em}}\hspace{0.44em}%
+  \textbf{\color{accent}#1}\hspace{0.55em}{\small\color{muted}#2}%
+  \hfill{\small\color{muted}#3}%
+  \par\nopagebreak[4]\vspace{0.06em}\nopagebreak[4]
+}
+
+% 实习条目：#1 公司 #2 岗位 #3 时间
+\newcommand{\role}[3]{%
+  \par\vspace{0.30em}%
+  \noindent{\color{accent}\rule[-0.18em]{2.6pt}{1.0em}}\hspace{0.44em}%
+  \textbf{\color{accent}#1}\hspace{0.55em}{\small\color{muted}#2}%
+  \hfill\textbf{#3}%
+  \par\nopagebreak[4]\vspace{0.06em}\nopagebreak[4]
+}
+
+% Songti SC Black 无 en-dash 字形，日期连接号强制走西文字体
+\newcommand{\dash}{\hspace{0.30em}{\englishfont–}\hspace{0.30em}}
+\newcommand{\metric}[1]{\textbf{#1}}
+\newcommand{\co}{\textsuperscript{*}}
+
+\begin{document}
+\fontsize{10.4}{16.2}\selectfont
+
+\begin{center}
+  {\fontsize{20}{24}\selectfont\bfseries 张乐骏\quad Lejun Zhang}\\[0.40em]
+  \footnotesize
+  \faPhone\enspace +86 173-1730-3177
+  \quad\textbar\quad
+  \faEnvelope\enspace \href{mailto:lejunzhang@sjtu.edu.cn}{lejunzhang@sjtu.edu.cn}
+  \quad\textbar\quad
+  \faIcon{map-marker-alt}\enspace 上海\\[0.30em]
+  \faGlobe\enspace \href{https://zhanglejun02.github.io}{zhanglejun02.github.io}
+  \quad\textbar\quad
+  \faGithub\enspace \href{https://github.com/zhanglejun02}{github.com/zhanglejun02}
+  \quad\textbar\quad
+  \faGraduationCap\enspace \href{https://scholar.google.com/citations?user=HJsU4pYAAAAJ&hl=en}{Google Scholar}\\[0.30em]
+  \faFlask\enspace \textbf{Research Interests:}\enspace LLM Multi-Agent Systems, AI Safety, Multimodal LLM, Efficient LLM
+\end{center}
+
+\section{教育背景}
+
+\entry{上海交通大学}{计算机科学与工程系 · 工学博士}{2026.4\dash{}至今}
+  {研究方向：Multi-Agent Systems, AI Safety, Multimodal LLM}
+
+\entry{纽约大学 New York University}{计算机工程 · 工学硕士 · GPA 3.7/4}{2024.9\dash{}2025.12}
+  {核心课程：矩阵论、博弈论、随机过程、机器学习、深度学习}
+
+\entry{上海师范大学}{人工智能 · 工学学士 · GPA 3.65/4}{2020.9\dash{}2024.6}
+  {核心课程：模式识别与机器学习、深度学习、数据挖掘、概率论与数理统计、离散数学}
+
+\section{论文}
+
+{\small\bfseries\color{accent}在投 / Under Review}\par\vspace{-0.34em}
+
+\paper{WolfSociety: How Harmful-Agent Scaling Drives Collective Collapse in Financial Agent Societies}
+  {L. Zhang, S. Lu-Liang, X. Jiang, M. Wen, W. Zhang, S. Gu}
+  {AAAI 2027 · CCF-A}
+
+\vspace{0.05em}
+{\small\bfseries\color{accent}已发表}\par\vspace{-0.34em}
+
+\paper{TennisTV: Do Multimodal Large Language Models Understand Tennis Rallies?}
+  {Z. Bao\co, L. Zhang\co}
+  {ICASSP 2025 · Oral · CCF-B}
+
+\paper{Efficient LLM Training by Accelerating Gradient Low-Rank Projection and Adaptive Subspace Switching}
+  {T. Miao\co, L. Zhang\co, Z. Bao\co}
+  {ICASSP 2025 · CCF-B}
+
+\section{科研与项目经历}
+
+\project{多智能体系统安全与群体失效研究}{Harmful-Agent Scaling in LLM Agent Societies}{AAAI 2027 在投}
+\begin{itemize}
+  \item \textbf{问题定义：}研究 LLM 多智能体社会中有害智能体的规模效应，刻画少量有害个体如何经交互反馈触发系统级集体失效。
+  \item \textbf{方法设计：}提出 Agent Society Dynamics 有限规模分析框架，搭建信息传播、智能体决策与市场反馈三者耦合的仿真社会，系统扫描有害占比、社会规模与交互结构对失效边界的影响。
+  \item \textbf{核心结论：}发现显著的非线性、规模依赖崩塌转变——社会规模由 \metric{100} 增至 \metric{2000} 时，临界有害占比由 \metric{4.7\%} 降至 \metric{2.2\%}，而临界有害数量由 \metric{4.7} 升至 \metric{44}；多组机制与流动性消融验证了该规律的稳健性。
+\end{itemize}
+
+\project{TennisTV 多模态评测基准}{Tennis Video Understanding Benchmark}{ICASSP 2025 Oral}
+\begin{itemize}
+  \item \textbf{工作定位：}提出 TennisTV——首个面向网球视频理解的多模态大模型评测基准，填补细粒度体育视频评测空白。
+  \item \textbf{数据构建：}首次将网球视频拆分为回合事件与击球事件两级粒度，设计自动化标注流水线，产出覆盖 \metric{9 类任务、2943 条}人工校验问答的数据集。
+  \item \textbf{评测分析：}系统评测 \metric{17 个}主流 MLLMs（开源/闭源 × thinking/non-thinking），定位模型在时序定位与细粒度动作理解上的共性短板。
+\end{itemize}
+
+\project{大模型内存高效训练}{Memory-Efficient LLM Training}{ICASSP 2025}
+\begin{itemize}
+  \item \textbf{研究目标：}聚焦大模型内存高效微调，对比 Zeroth-order Optimization 与 Low-Rank Projection 两条技术路线。
+  \item \textbf{方法改进：}复现 MeZO、GaLore、AdaRank；针对 GaLore 中低秩梯度分解的性能瓶颈，基于 Randomized-SVD 提出加速分解方法与自适应子空间切换策略。
+  \item \textbf{实验结果：}在下游任务精度不降的前提下，训练时间效率提升 \metric{20\%}，峰值显存占用降低 \metric{40\%}。
+\end{itemize}
+
+\project{Kaggle 竞赛 · 银牌}{MAP — Charting Student Math Misunderstandings}{}
+\begin{itemize}
+  \item \textbf{任务背景：}面向 \metric{65 类} Misconception 标签的学生数学误解多分类识别，类别高度不均衡。
+  \item \textbf{建模方案：}构建 Gemma-2 9B、Qwen3-8B、DeepSeek-Math-7B 三模型集成系统，采用概率级融合提升鲁棒性；以 LoRA（PEFT）微调 Gemma-2 9B，并适配 Kaggle 的 GPU 与时长限制。
+  \item \textbf{工程结果：}实现多 GPU 并行推理，将推理验证耗时压缩至 \metric{2 小时}以内，最终斩获竞赛\metric{银牌}。
+\end{itemize}
+
+\project{扩散模型个性化图像编辑}{Diffusion-based Personalized Image Editing}{}
+\begin{itemize}
+  \item \textbf{算法复现：}基于开源实现复现 Textual Inversion 与 InstructPix2Pix，梳理文本反演与指令式编辑两类范式的能力边界。
+  \item \textbf{方法探索：}面向个性化编辑场景，设计一次性上下文提示模板，在不额外训练的前提下提升编辑结果的一致性与可控性。
+\end{itemize}
+
+\section{实习经历}
+
+\role{商汤科技 SenseTime}{视觉算法实习生}{2023.7\dash{}2023.10}
+\begin{itemize}
+  \item \textbf{模型选型：}在政府合作电网巡检项目（绝缘子破损、电线绑扎不规范、导线裸露等场景）中，评测 R-CNN 系列、RetinaNet、CenterNet 等主流检测器，输出选型结论与误检归因分析；最终选型方案在自建测试集上取得 \metric{mAP@0.5 = 0.68}，较初始 baseline 提升 \metric{4.2} 个点。
+  \item \textbf{数据建设：}主导超 \metric{8000 张}图像的目标检测标注，制定标注规范并建立质量回流机制，交付高质量训练集。
+  \item \textbf{工程沉淀：}维护实验日志与技术文档，跟踪目标检测方向顶会进展并输出调研报告。
+\end{itemize}
+\vspace{0.12em}
+{\small\textbf{技术栈：}PyTorch，开源项目本地化部署，Linux}
+
+\section{技能与荣誉}
+
+\begin{itemize}
+  \item \textbf{编程与框架：}Python，PyTorch，Hugging Face Transformers / PEFT，LangGraph，Django。
+  \item \textbf{研究技能：}大模型微调（LoRA / 全参）、多 GPU 分布式训练与推理、评测基准构建与自动化标注流水线、多智能体系统仿真。
+  \item \textbf{工具与环境：}Linux，Docker，Git，LaTeX，Cursor / Codex。
+  \item \textbf{竞赛与荣誉：}Kaggle MAP 竞赛银牌；MCM 数学建模竞赛 Finalist 提名（全球前 \metric{1.98\%}）；全国大学生创新创业大赛国家级立项。
+  \item \textbf{语言能力：}中文（母语），英语（流利）。
+\end{itemize}
+
+\end{document}

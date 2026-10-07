@@ -31,7 +31,8 @@ window.SITE_CONFIG = {
   socialLinks: [
     { label: "Google Scholar", url: "https://scholar.google.com/" },
     { label: "GitHub", url: "https://github.com/" },
-    { label: "WeChat", url: "" },
+    // qrCode 为二维码图片路径，点击后弹窗展示二维码。
+    { label: "WeChat", qrCode: "./assets/wechat-qr.png" },
   ],
 
   researchInterests: [

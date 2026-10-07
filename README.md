@@ -34,6 +34,8 @@
 
 修改 `socialLinks` 数组。新增链接时复制其中一个对象，并修改 `label` 和 `url`。
 
+如果要点击后弹出二维码（例如 WeChat），把 `url` 换成 `qrCode`，填写二维码图片路径，例如 `"./assets/wechat-qr.png"`。
+
 ### 动态、论文与经历
 
 - 最新动态：编辑 `news` 数组。

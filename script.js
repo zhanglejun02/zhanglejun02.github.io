@@ -85,12 +85,42 @@
 
     container.innerHTML = config.socialLinks
       .map((link, index) => {
-        const item = link.url
-          ? `<a href="${escapeHtml(link.url)}"${externalAttributes(link.url)}>${escapeHtml(link.label)}</a>`
-          : `<span class="social-label">${escapeHtml(link.label)}</span>`;
+        let item;
+        if (link.qrCode) {
+          item = `<button class="social-button" type="button" data-qr-code="${escapeHtml(link.qrCode)}" data-qr-label="${escapeHtml(link.label)}">${escapeHtml(link.label)}</button>`;
+        } else if (link.url) {
+          item = `<a href="${escapeHtml(link.url)}"${externalAttributes(link.url)}>${escapeHtml(link.label)}</a>`;
+        } else {
+          item = `<span class="social-label">${escapeHtml(link.label)}</span>`;
+        }
         return `${index ? "<span>·</span>" : ""}${item}`;
       })
       .join("");
+  }
+
+  function setupQrDialog() {
+    const dialog = document.querySelector("#qr-dialog");
+    if (!dialog) return;
+
+    const image = dialog.querySelector("img");
+    const title = dialog.querySelector("#qr-dialog-title");
+
+    document.querySelectorAll("[data-qr-code]").forEach((button) => {
+      button.addEventListener("click", () => {
+        image.src = button.dataset.qrCode;
+        image.alt = `${button.dataset.qrLabel} 二维码`;
+        title.textContent = `Scan to add me on ${button.dataset.qrLabel}`;
+        dialog.showModal();
+      });
+    });
+
+    dialog.querySelector(".qr-dialog-close").addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) dialog.close();
+    });
   }
 
   function renderResearchInterests() {
@@ -235,6 +265,7 @@
   renderMetadata();
   renderProfile();
   renderSocialLinks();
+  setupQrDialog();
   renderResearchInterests();
   renderNews();
   renderPublications();
