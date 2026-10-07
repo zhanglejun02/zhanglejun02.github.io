@@ -223,6 +223,146 @@
         .join("")}`;
   }
 
+  function setupContributionBand() {
+    const grid = document.querySelector("#contribution-grid");
+    const doraemon = document.querySelector("#contribution-doraemon");
+    if (!grid || !doraemon) return;
+
+    const stage = grid.parentElement;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const rows = 7;
+    const speed = 110;
+    let columns = [];
+    let pitch = 16;
+    let gridLeft = 0;
+    let headWidth = 64;
+    let lastColumn = -1;
+    let elapsed = 0;
+    let lastTime = null;
+    let frameId = null;
+    let builtWidth = 0;
+
+    const randomBaseLevel = () => {
+      const roll = Math.random();
+      if (roll < 0.8) return 0;
+      if (roll < 0.92) return 1;
+      if (roll < 0.97) return 2;
+      if (roll < 0.99) return 3;
+      return 4;
+    };
+
+    function buildGrid() {
+      const styles = getComputedStyle(grid);
+      const cellSize = parseFloat(styles.gridAutoColumns);
+      const gap = parseFloat(styles.columnGap);
+      const count = Math.floor((stage.clientWidth + gap) / (cellSize + gap));
+      const fragment = document.createDocumentFragment();
+
+      columns.flat().forEach((cell) => clearTimeout(cell.timer));
+      columns = [];
+
+      for (let column = 0; column < count; column += 1) {
+        const cells = [];
+        for (let row = 0; row < rows; row += 1) {
+          const element = document.createElement("i");
+          const base = randomBaseLevel();
+          element.dataset.level = String(base);
+          fragment.append(element);
+          cells.push({ element, base, timer: null });
+        }
+        columns.push(cells);
+      }
+
+      grid.replaceChildren(fragment);
+      pitch = cellSize + gap;
+      gridLeft = columns[0]?.[0].element.offsetLeft ?? 0;
+      headWidth = doraemon.offsetWidth;
+      builtWidth = stage.clientWidth;
+      lastColumn = -1;
+    }
+
+    function lightColumn(index) {
+      columns[index]?.forEach((cell) => {
+        if (Math.random() < 0.3) return;
+        cell.element.dataset.level = String(1 + Math.floor(Math.random() * 4));
+        cell.element.classList.add("is-lit");
+        cell.element.animate(
+          [{ transform: "scale(1)" }, { transform: "scale(1.45)" }, { transform: "scale(1)" }],
+          { duration: 420, easing: "ease-out" },
+        );
+        clearTimeout(cell.timer);
+        cell.timer = setTimeout(() => {
+          cell.element.classList.remove("is-lit");
+          cell.element.dataset.level = String(cell.base);
+        }, 1600 + Math.random() * 2200);
+      });
+    }
+
+    function placeDoraemon(distance) {
+      const x = distance - headWidth;
+      const step = distance / 38;
+      const hop = Math.abs(Math.sin(step)) * -14 + 7;
+      const tilt = Math.sin(step) * 6;
+      doraemon.style.transform = `translate(${x}px, ${hop}px) rotate(${tilt}deg)`;
+      return x;
+    }
+
+    function frame(time) {
+      if (lastTime !== null) elapsed += Math.min(time - lastTime, 100);
+      lastTime = time;
+
+      const travel = stage.clientWidth + headWidth * 2;
+      const x = placeDoraemon(((elapsed / 1000) * speed) % travel);
+      const column = Math.floor((x + headWidth / 2 - gridLeft) / pitch);
+
+      if (column !== lastColumn) {
+        lastColumn = column;
+        lightColumn(column);
+      }
+
+      frameId = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (frameId !== null) return;
+      lastTime = null;
+      frameId = requestAnimationFrame(frame);
+    }
+
+    function stop() {
+      if (frameId === null) return;
+      cancelAnimationFrame(frameId);
+      frameId = null;
+    }
+
+    buildGrid();
+
+    let resizeTimer = null;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (stage.clientWidth === builtWidth) return;
+        buildGrid();
+        if (reduceMotion) placeDoraemon(stage.clientWidth * 0.7 + headWidth);
+      }, 150);
+    });
+
+    if (reduceMotion) {
+      placeDoraemon(stage.clientWidth * 0.7 + headWidth);
+      return;
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      start();
+      return;
+    }
+
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) start();
+      else stop();
+    }).observe(stage);
+  }
+
   function setupNavigation() {
     const menuButton = document.querySelector(".menu-toggle");
     const navigation = document.querySelector(".site-nav");
@@ -271,6 +411,7 @@
   renderPublications();
   renderJourney();
   setupNavigation();
+  setupContributionBand();
 
   document.querySelector("#year").textContent = new Date().getFullYear();
 })();
