@@ -26,6 +26,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <!-- 在页面渲染前确定主题，避免刷新时闪白 -->
+    <script>
+      (() => {
+        let theme = null;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -38,10 +51,6 @@
         <span class="brand-name"><span data-site="shortName">NAME</span><i>.</i></span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
-        <span></span><span></span>
-      </button>
-
       <nav class="site-nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#news">News</a>
@@ -49,10 +58,37 @@
         <a href="#journey">Journey</a>
       </nav>
 
-      <a class="header-cta" data-site-link="email" href="mailto:hello@example.com">
-        <span class="status-dot"></span>
-        Let’s talk
-      </a>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Dark mode">
+          <span class="theme-toggle-track" aria-hidden="true">
+            <span class="theme-toggle-stars"></span>
+            <span class="theme-toggle-thumb">
+              <svg class="icon-sun" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="11" fill="#f5c84b" stroke="#172a3a" stroke-width="1.5" />
+                <circle cx="12" cy="12" r="4.5" fill="#fff6d6" stroke="#172a3a" stroke-width="1.5" />
+                <g stroke="#172a3a" stroke-width="1.5" stroke-linecap="round">
+                  <path d="M12 3.8v1.6M12 18.6v1.6M3.8 12h1.6M18.6 12h1.6M6.2 6.2l1.1 1.1M16.7 16.7l1.1 1.1M6.2 17.8l1.1-1.1M16.7 7.3l1.1-1.1" />
+                </g>
+              </svg>
+              <svg class="icon-moon" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="11" fill="#f2e8c4" stroke="#172a3a" stroke-width="1.5" />
+                <circle cx="8.5" cy="9" r="2.2" fill="#ddd0a2" />
+                <circle cx="14.5" cy="15.5" r="1.6" fill="#ddd0a2" />
+                <circle cx="15.5" cy="8" r="1" fill="#ddd0a2" />
+              </svg>
+            </span>
+          </span>
+        </button>
+
+        <a class="header-cta" data-site-link="email" href="mailto:hello@example.com">
+          <span class="status-dot"></span>
+          Let’s talk
+        </a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </header>
 
     <main id="main">

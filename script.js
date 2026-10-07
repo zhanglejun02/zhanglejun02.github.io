@@ -363,6 +363,50 @@
     }).observe(stage);
   }
 
+  function setupThemeToggle() {
+    const toggle = document.querySelector(".theme-toggle");
+    if (!toggle) return;
+
+    const root = document.documentElement;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+    let transitionTimer = null;
+
+    const readSavedTheme = () => {
+      try {
+        return localStorage.getItem("theme");
+      } catch (error) {
+        return null;
+      }
+    };
+
+    function applyTheme(theme, animate) {
+      if (animate) {
+        root.classList.add("theme-transition");
+        clearTimeout(transitionTimer);
+        transitionTimer = setTimeout(() => root.classList.remove("theme-transition"), 450);
+      }
+      root.dataset.theme = theme;
+      toggle.setAttribute("aria-checked", String(theme === "dark"));
+      themeColor?.setAttribute("content", theme === "dark" ? "#0d1823" : "#159de4");
+    }
+
+    applyTheme(root.dataset.theme === "dark" ? "dark" : "light", false);
+
+    toggle.addEventListener("click", () => {
+      const next = root.dataset.theme === "dark" ? "light" : "dark";
+      applyTheme(next, true);
+      try {
+        localStorage.setItem("theme", next);
+      } catch (error) {}
+    });
+
+    systemDark.addEventListener("change", (event) => {
+      if (readSavedTheme()) return;
+      applyTheme(event.matches ? "dark" : "light", true);
+    });
+  }
+
   function setupNavigation() {
     const menuButton = document.querySelector(".menu-toggle");
     const navigation = document.querySelector(".site-nav");
@@ -410,6 +454,7 @@
   renderNews();
   renderPublications();
   renderJourney();
+  setupThemeToggle();
   setupNavigation();
   setupContributionBand();
 
