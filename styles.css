@@ -508,35 +508,115 @@ h1 {
   border-style: dashed;
 }
 
-.orbit-one::after,
 .orbit-two::after {
   position: absolute;
+  right: 8%;
+  bottom: 18%;
   width: 9px;
   height: 9px;
   content: "";
   border-radius: 50%;
-  background: var(--red);
-}
-
-.orbit-one::after {
-  top: 15%;
-  left: 12%;
-}
-
-.orbit-two::after {
-  right: 8%;
-  bottom: 18%;
   background: var(--yellow);
 }
 
-.propeller {
+/* 轨道上的公转元素：runner 负责公转，item 反向旋转保持图标始终正立 */
+.orbit-runner {
+  --orbit-start: 0deg;
+  --orbit-duration: 30s;
   position: absolute;
+  inset: -1px;
+  transform: rotate(var(--orbit-start));
+  animation: orbit-spin var(--orbit-duration) linear infinite;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(calc(var(--orbit-start) * -1));
+  animation: orbit-counter-spin var(--orbit-duration) linear infinite;
+}
+
+.orbit-runner-earth {
+  --orbit-start: -50deg;
+  --orbit-duration: 40s;
+  z-index: 1;
+}
+
+.orbit-runner-propeller {
+  --orbit-start: 40deg;
+  --orbit-duration: 26s;
   z-index: 3;
-  top: 15px;
-  right: 15%;
+}
+
+@keyframes orbit-spin {
+  from { transform: rotate(var(--orbit-start)); }
+  to { transform: rotate(calc(var(--orbit-start) + 360deg)); }
+}
+
+@keyframes orbit-counter-spin {
+  from { transform: translate(-50%, -50%) rotate(calc(var(--orbit-start) * -1)); }
+  to { transform: translate(-50%, -50%) rotate(calc(var(--orbit-start) * -1 - 360deg)); }
+}
+
+.earth {
+  display: block;
+  width: 44px;
+  height: 44px;
+  filter: drop-shadow(0 6px 10px rgba(21, 157, 228, 0.25));
+}
+
+.earth-ocean {
+  fill: var(--blue);
+}
+
+.earth-land {
+  fill: #6ccf8f;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  animation: earth-rotate 9s linear infinite;
+}
+
+.earth-outline {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+}
+
+.earth-shine {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+@keyframes earth-rotate {
+  from { transform: translateX(0); }
+  to { transform: translateX(-48px); }
+}
+
+.propeller {
+  position: relative;
   width: 92px;
   height: 54px;
   transform: rotate(10deg);
+}
+
+.propeller-blades {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 21px;
+  transform-origin: 46px 50%;
+  animation: propeller-spin 0.9s linear infinite;
+}
+
+@keyframes propeller-spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
 .propeller::before {
@@ -1349,10 +1429,6 @@ noscript {
     width: 76%;
   }
 
-  .propeller {
-    right: 7%;
-  }
-
   .ticker-track {
     width: 1000px;
   }
@@ -1473,5 +1549,12 @@ noscript {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .orbit-runner,
+  .orbit-item,
+  .earth-land,
+  .propeller-blades {
+    animation: none !important;
   }
 }
