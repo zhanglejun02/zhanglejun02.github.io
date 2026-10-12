@@ -18,7 +18,7 @@ window.SITE_CONFIG = {
     name: "Lejun Zhang",
     shortName: "NAME",
     intro:
-      "I’m a PhD student at Shanghai Jiao Tong University, working on [RESEARCH AREA 01] and [RESEARCH AREA 02]. I hope to solve meaningful real-world problems through fun and rigorous research.",
+      "I’m a PhD student at Shanghai Jiao Tong University. My research focuses on AI security and agentic systems: understanding how AI agents can fail or be attacked, and building agents that are safe, robust, and trustworthy in the real world.",
     about:
       "My research lies at the intersection of [AREA A], [AREA B], and [AREA C]. I enjoy breaking complex problems down into research that is clear, verifiable, and genuinely helpful to people.",
     email: "lejunzhang@sjtu.edu.cn",
