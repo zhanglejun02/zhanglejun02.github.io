@@ -1584,6 +1584,11 @@ noscript {
     display: none;
   }
 
+  .header-cv {
+    display: flex;
+    padding: 10px 14px;
+  }
+
   .menu-toggle {
     display: grid;
     width: 42px;

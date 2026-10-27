@@ -40,7 +40,6 @@
       name: config.profile.name,
       shortName: config.profile.shortName,
       intro: config.profile.intro,
-      about: config.profile.about,
       email: config.profile.email,
       location: config.profile.location,
     };
@@ -62,6 +61,8 @@
     document.querySelectorAll('[data-site-link="cv"]').forEach((link) => {
       if (config.profile.cv) {
         link.href = config.profile.cv;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
       } else {
         link.hidden = true;
       }
@@ -121,24 +122,6 @@
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) dialog.close();
     });
-  }
-
-  function renderResearchInterests() {
-    config.researchInterests.slice(0, 2).forEach((interest, index) => {
-      const title = document.querySelector(`[data-interest-title="${index}"]`);
-      const description = document.querySelector(
-        `[data-interest-description="${index}"]`,
-      );
-      if (title) title.textContent = interest.title;
-      if (description) description.textContent = interest.description;
-    });
-
-    const hobbies = document.querySelector("#hobbies");
-    if (hobbies) {
-      hobbies.innerHTML = `I also enjoy<br />${config.hobbies
-        .map(escapeHtml)
-        .join(",<br />")}<span>.</span>`;
-    }
   }
 
   function renderNews() {
@@ -202,25 +185,6 @@
           </article>`;
       })
       .join("");
-  }
-
-  function renderJourney() {
-    const container = document.querySelector("#timeline");
-    if (!container) return;
-
-    container.innerHTML = `
-      <div class="timeline-line"></div>
-      ${config.journey
-        .map(
-          (item) => `
-            <article>
-              <span class="timeline-dot"></span>
-              <time>${escapeHtml(item.period)}</time>
-              <h3>${escapeHtml(item.title)}</h3>
-              <p>${escapeHtml(item.organization)}</p>
-            </article>`,
-        )
-        .join("")}`;
   }
 
   function setupContributionBand() {
@@ -450,10 +414,8 @@
   renderProfile();
   renderSocialLinks();
   setupQrDialog();
-  renderResearchInterests();
   renderNews();
   renderPublications();
-  renderJourney();
   setupThemeToggle();
   setupNavigation();
   setupContributionBand();

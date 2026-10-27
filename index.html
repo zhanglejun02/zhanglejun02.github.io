@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Academic homepage of Lejun Zhang, a PhD student sharing research, publications, news, and experience."
+      content="Academic homepage of Lejun Zhang, a PhD student sharing research, publications, and news."
     />
     <meta name="theme-color" content="#159de4" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Lejun Zhang · Academic Homepage" />
     <meta
       property="og:description"
-      content="Academic homepage of Lejun Zhang, a PhD student sharing research, publications, news, and experience."
+      content="Academic homepage of Lejun Zhang, a PhD student sharing research, publications, and news."
     />
     <meta property="og:image" content="./assets/social-preview.svg" />
     <meta property="og:url" content="https://zhanglejun02.github.io/" />
@@ -53,10 +53,8 @@
       </a>
 
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="#about">About</a>
         <a href="#news">News</a>
         <a href="#research">Research</a>
-        <a href="#journey">Journey</a>
       </nav>
 
       <div class="header-actions">
@@ -81,6 +79,9 @@
           </span>
         </button>
 
+        <a class="header-cta header-cv" data-site-link="cv" href="./assets/cv.pdf" target="_blank" rel="noopener noreferrer">
+          CV
+        </a>
         <a class="header-cta" data-site-link="email" href="mailto:hello@example.com">
           <span class="status-dot"></span>
           Let’s talk
@@ -107,7 +108,7 @@
               View my research
               <span aria-hidden="true">↗</span>
             </a>
-            <a class="text-link" data-site-link="cv" href="./assets/cv.pdf">
+            <a class="text-link" data-site-link="cv" href="./assets/cv.pdf" target="_blank" rel="noopener noreferrer">
               Download CV <span aria-hidden="true">↓</span>
             </a>
           </div>
@@ -200,48 +201,11 @@
         </div>
       </div>
 
-      <section class="about section-shell section-block" id="about">
-        <div class="section-heading">
-          <div>
-            <span class="section-number">01</span>
-            <p class="section-kicker">A LITTLE ABOUT ME</p>
-            <h2>Research with<br /><em>curiosity & care.</em></h2>
-          </div>
-          <p class="section-summary" data-site="about">
-            A short introduction to your research interests, methods, and long-term goals.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <article class="interest-card blue-card">
-            <span class="card-index">01</span>
-            <div class="line-icon network-icon" aria-hidden="true">
-              <i></i><i></i><i></i><i></i>
-            </div>
-            <h3 data-interest-title="0">[RESEARCH INTEREST 01]</h3>
-            <p data-interest-description="0">Describe your first core research direction.</p>
-            <span class="card-arrow">↗</span>
-          </article>
-          <article class="interest-card cream-card">
-            <span class="card-index">02</span>
-            <div class="line-icon pocket-icon" aria-hidden="true"></div>
-            <h3 data-interest-title="1">[RESEARCH INTEREST 02]</h3>
-            <p data-interest-description="1">Describe your second core research direction.</p>
-            <span class="card-arrow">↗</span>
-          </article>
-          <aside class="small-fact-card">
-            <span class="sparkle">✦</span>
-            <p>Outside the lab</p>
-            <h3 id="hobbies">I also enjoy<br />[HOBBY 01],<br />[HOBBY 02] &<br />blue-sky thinking.</h3>
-          </aside>
-        </div>
-      </section>
-
       <section class="news section-block" id="news">
         <div class="section-shell">
           <div class="section-heading compact">
             <div>
-              <span class="section-number">02</span>
+              <span class="section-number">01</span>
               <p class="section-kicker">WHAT’S HAPPENING</p>
               <h2>Latest <em>news.</em></h2>
             </div>
@@ -256,7 +220,7 @@
       <section class="research section-shell section-block" id="research">
         <div class="section-heading compact">
           <div>
-            <span class="section-number">03</span>
+            <span class="section-number">02</span>
             <p class="section-kicker">SELECTED WORK</p>
             <h2>Featured <em>research.</em></h2>
           </div>
@@ -267,22 +231,6 @@
 
         <!-- 论文内容由 site.config.js 中的 publications 数组生成 -->
         <div class="paper-list" id="paper-list"></div>
-      </section>
-
-      <section class="journey section-block" id="journey">
-        <div class="section-shell">
-          <div class="section-heading compact">
-            <div>
-              <span class="section-number">04</span>
-              <p class="section-kicker">THE PATH SO FAR</p>
-              <h2>My <em>journey.</em></h2>
-            </div>
-          </div>
-          <!-- 经历内容由 site.config.js 中的 journey 数组生成 -->
-          <div class="timeline" id="timeline">
-            <div class="timeline-line"></div>
-          </div>
-        </div>
       </section>
 
       <section class="contact section-shell">
@@ -317,7 +265,7 @@
       <img src="" alt="" width="600" height="553" />
     </dialog>
 
-    <noscript>Please enable JavaScript to see news, publications, and experience on this site.</noscript>
+    <noscript>Please enable JavaScript to see news and publications on this site.</noscript>
     <script src="./site.config.js"></script>
     <script src="./script.js"></script>
   </body>

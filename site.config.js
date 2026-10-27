@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
   meta: {
     title: "Lejun Zhang · Academic Homepage",
     description:
-      "Academic homepage of Lejun Zhang, a PhD student sharing research, publications, news, and experience.",
+      "Academic homepage of Lejun Zhang, a PhD student sharing research, publications, and news.",
     // 部署后替换为主页完整地址，例如 https://username.github.io/
     url: "https://zhanglejun02.github.io/",
   },
@@ -19,14 +19,12 @@ window.SITE_CONFIG = {
     shortName: "NAME",
     intro:
       "I’m a PhD student at Shanghai Jiao Tong University. My research focuses on AI security and agentic systems: understanding how AI agents can fail or be attacked, and building agents that are safe, robust, and trustworthy in the real world.",
-    about:
-      "My research lies at the intersection of [AREA A], [AREA B], and [AREA C]. I enjoy breaking complex problems down into research that is clear, verifiable, and genuinely helpful to people.",
     email: "lejunzhang@sjtu.edu.cn",
     location: "[Shanghai, China]",
     // 替换照片后填写相对路径，例如 "./assets/profile.jpg"；留空则显示占位图。
     photo: "./assets/profile.png",
     // 上传简历后填写路径，例如 "./assets/cv.pdf"；留空则隐藏下载按钮。
-    cv: "",
+    cv: "./assets/cv.pdf",
   },
 
   socialLinks: [
@@ -35,19 +33,6 @@ window.SITE_CONFIG = {
     // qrCode 为二维码图片路径，点击后弹窗展示二维码。
     { label: "WeChat", qrCode: "./assets/wechat-qr.png" },
   ],
-
-  researchInterests: [
-    {
-      title: "[RESEARCH INTEREST 01]",
-      description: "One or two sentences about your first core research direction and the questions you care about most.",
-    },
-    {
-      title: "[RESEARCH INTEREST 02]",
-      description: "One or two sentences about your second core research direction and its real-world impact.",
-    },
-  ],
-
-  hobbies: ["[HOBBY 01]", "[HOBBY 02]", "blue-sky thinking"],
 
   /**
    * 新增动态：复制一个 {...} 对象并修改内容。
@@ -142,24 +127,6 @@ window.SITE_CONFIG = {
         { label: "Code", url: "#" },
         { label: "Project", url: "#" },
       ],
-    },
-  ],
-
-  journey: [
-    {
-      period: "2026 — NOW",
-      title: "PhD in Computer Science",
-      organization: "Shanghai Jiao Tong University · [LAB NAME]",
-    },
-    {
-      period: "2024 — 2026",
-      title: "Master in Computer Engineering",
-      organization: "New York University · Tandon School of Engineering",
-    },
-    {
-      period: "20XX — 20XX",
-      title: "B.Eng. / B.Sc. in [MAJOR]",
-      organization: "[UNIVERSITY NAME] · [HONORS]",
     },
   ],
 };
