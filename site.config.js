@@ -16,7 +16,7 @@ window.SITE_CONFIG = {
 
   profile: {
     name: "Lejun Zhang",
-    shortName: "NAME",
+    shortName: "LEJUN",
     intro:
       "I’m a PhD student at Shanghai Jiao Tong University. My research focuses on AI security and agentic systems: understanding how AI agents can fail or be attacked, and building agents that are safe, robust, and trustworthy in the real world.",
     email: "lejunzhang@sjtu.edu.cn",
